@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALIENS.NYC — They Already Know | ALLDAYNYC</title>
+  <meta name="description" content="New York City's alien headquarters. ALLDAYNYC — content creator, photographer, and NYC insider. Follow the transmission." />
+  <meta name="keywords" content="aliens NYC, UFO New York City, aliens nyc, alldaynyc, NYC content creator, aliens gov NYC, UFO NYC, New York aliens, aliens new york" />
+  <meta name="author" content="ALLDAYNYC" />
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aliens.nyc" />
+  <meta property="og:title" content="ALIENS.NYC — They Already Know" />
+  <meta property="og:description" content="New York City's alien headquarters. ALLDAYNYC has been here all along." />
+  <meta property="og:image" content="https://aliens.nyc/ChatGPT_Image_May_29__2026__01_21_46_PM.png" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@alldaynyc" />
+  <meta name="twitter:title" content="ALIENS.NYC — They Already Know" />
+  <meta name="twitter:description" content="New York City's alien headquarters. ALLDAYNYC has been here all along." />
+  <meta name="twitter:image" content="https://aliens.nyc/ChatGPT_Image_May_29__2026__01_21_46_PM.png" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://aliens.nyc" />
+  <title>ALIENS.NYC</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #00ff88;
+      --green-dim: rgba(0,255,136,0.15);
+      --green-glow: rgba(0,255,136,0.4);
+      --red: #c0221e;
+      --white: #e8ffe8;
+      --mid: rgba(0,255,136,0.45);
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background: #000;
+      color: var(--white);
+      font-family: 'Courier New', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ---- STAR FIELD ---- */
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0; transform: translateY(0); }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(20px); }
+    }
+
+    /* ---- CRAWL SCREEN ---- */
+    #crawlScreen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .crawl-wrap {
+      width: 100%;
+      max-width: 500px;
+      padding: 0 32px;
+      perspective: 400px;
+    }
+
+    .crawl-text {
+      transform-origin: bottom center;
+      transform: rotateX(25deg);
+      animation: crawl 18s linear forwards;
+    }
+
+    .crawl-text p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--green);
+      text-align: center;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em;
+    }
+
+    .crawl-text .crawl-title {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 0.2em;
+      margin-bottom: 32px;
+      text-shadow: 0 0 20px var(--green);
+    }
+
+    .crawl-text .crawl-sub {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      opacity: 0.6;
+    }
+
+    @keyframes crawl {
+      0%   { transform: rotateX(25deg) translateY(100vh); opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: rotateX(25deg) translateY(-120%); opacity: 0; }
+    }
+
+    .skip-btn {
+      position: fixed;
+      bottom: 32px;
+      right: 24px;
+      z-index: 60;
+      background: none;
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      padding: 8px 16px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .skip-btn:hover { opacity: 1; }
+
+    /* ---- MAIN SITE ---- */
+    #mainSite {
+      display: none;
+      min-height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 24px;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Classified stamp */
+    .classified {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--green);
+      opacity: 0.6;
+      margin-bottom: 16px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .logo {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      animation: fadeUp 0.6s 0.1s ease both;
+      filter: brightness(1.2) drop-shadow(0 0 16px var(--green-glow)) drop-shadow(0 0 32px var(--green-glow));
+    }
+
+    .tagline {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--green);
+      opacity: 0.7;
+      margin-bottom: 32px;
+      text-align: center;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+
+    /* Live banner */
+    .live-banner {
+      display: none;
+      width: 100%;
+      margin-bottom: 16px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .live-banner a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 14px 20px;
+      background: rgba(0,255,136,0.1);
+      text-decoration: none;
+      color: var(--white);
+      border: 1px solid var(--green);
+    }
+
+    .live-left { display: flex; align-items: center; gap: 10px; }
+
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 1.4s ease infinite;
+      flex-shrink: 0;
+    }
+
+    .live-text {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .live-game {
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+
+    .live-watch {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* Links */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 14px 20px;
+      border: 1px solid rgba(0,255,136,0.3);
+      background: rgba(0,255,136,0.04);
+      text-decoration: none;
+      color: var(--white);
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      animation: fadeUp 0.55s ease both;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .link-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--green);
+      transition: width 0.22s ease;
+      z-index: 0;
+    }
+
+    .link-item:hover::before { width: 100%; }
+    .link-item:hover { border-color: var(--green); color: #000; }
+    .link-item:hover .icon { filter: invert(1) brightness(0); }
+    .link-item:hover .arrow { opacity: 1; transform: translate(2px, -2px); }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      opacity: 0.7;
+      flex-shrink: 0;
+      filter: invert(1) sepia(1) saturate(3) hue-rotate(90deg);
+      transition: filter 0.2s;
+    }
+
+    .label { position: relative; z-index: 1; }
+
+    .arrow {
+      opacity: 0.3;
+      font-size: 14px;
+      transition: opacity 0.2s, transform 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .link-item:nth-child(1) { animation-delay: 0.15s; }
+    .link-item:nth-child(2) { animation-delay: 0.20s; }
+    .link-item:nth-child(3) { animation-delay: 0.25s; }
+    .link-item:nth-child(4) { animation-delay: 0.30s; }
+    .link-item:nth-child(5) { animation-delay: 0.35s; }
+    .link-item:nth-child(6) { animation-delay: 0.40s; }
+    .link-item:nth-child(7) { animation-delay: 0.45s; }
+
+    /* Photos modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-content { width: 100%; max-width: 460px; position: relative; }
+
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: var(--green);
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      font-family: 'Courier New', monospace;
+    }
+
+    .modal-close:hover { opacity: 1; }
+
+    .gallery-title {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--green);
+      opacity: 0.6;
+      margin-bottom: 12px;
+    }
+
+    .gallery-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+
+    .gallery-scroll::-webkit-scrollbar { display: none; }
+
+    .gallery-item { flex-shrink: 0; width: 200px; }
+
+    .gallery-item img {
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      border: 1px solid rgba(0,255,136,0.3);
+    }
+
+    .download-btn {
+      display: block;
+      width: 100%;
+      padding: 8px 0;
+      background: rgba(0,0,0,0.8);
+      color: var(--green);
+      text-align: center;
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-family: 'Courier New', monospace;
+      border: 1px solid rgba(0,255,136,0.3);
+      border-top: none;
+      transition: background 0.2s;
+    }
+
+    .download-btn:hover { background: var(--green); color: #000; }
+
+    /* Contact */
+    .contact-row {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: fadeUp 0.55s 0.5s ease both;
+    }
+
+    .contact-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .contact-link {
+      font-size: 11px;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover { color: var(--green); }
+
+    .footer-stamp {
+      margin-top: 40px;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      color: rgba(0,255,136,0.25);
+      text-align: center;
+      animation: fadeUp 0.55s 0.55s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Star field -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Crawl Screen -->
+  <div id="crawlScreen">
+    <div class="crawl-wrap">
+      <div class="crawl-text">
+        <p class="crawl-title">👽 CLASSIFIED</p>
+        <p>FOR DECADES, NEW YORK CITY HAS KEPT A CLOSELY GUARDED SECRET.</p>
+        <p>ONE INDIVIDUAL HAS BEEN WALKING AMONG YOU. LIVING IN YOUR NEIGHBORHOODS. INTERACTING WITH YOU IN YOUR DAILY LIVES.</p>
+        <p>HE HAS ATTENDED THE SAME EVENTS, EXPLORED THE SAME STREETS, AND DOCUMENTED IT ALL.</p>
+        <p>WITH ONE DISTINCTION — HE SEES NEW YORK DIFFERENTLY THAN THE REST.</p>
+        <p>THE COVER-UP IS OVER.</p>
+        <p class="crawl-title">ALLDAYNYC</p>
+        <p class="crawl-sub">TRANSMISSION INCOMING...</p>
+      </div>
+    </div>
+    <button class="skip-btn" onclick="showSite()">SKIP ›</button>
+  </div>
+
+  <!-- Main Site -->
+  <div id="mainSite">
+    <div class="container">
+
+      <p class="classified">// CLASSIFIED TRANSMISSION · ALIENS.NYC //</p>
+
+      <img class="logo" src="ChatGPT_Image_May_29__2026__01_21_46_PM.png" alt="ALLDAYNYC Logo" />
+
+      <p class="tagline">THEY ALREADY KNOW. 👽 NEW YORK CITY</p>
+
+      <!-- Live Banner -->
+      <div class="live-banner" id="liveBanner">
+        <a href="https://twitch.tv/alldaynyc" target="_blank" rel="noopener">
+          <span class="live-left">
+            <span class="live-dot"></span>
+            <span>
+              <div class="live-text">⚡ Live Transmission on Twitch</div>
+              <div class="live-game" id="liveGame"></div>
+            </span>
+          </span>
+          <span class="live-watch">Tune In →</span>
+        </a>
+      </div>
+
+      <div class="links">
+
+        <a class="link-item" href="https://instagram.com/alldaynyc" target="_blank" rel="noopener">
+          <span class="link-left">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="label">Instagram</span>
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="link-item" href="https://tiktok.com/@alldaynyc" target="_blank" rel="noopener">
+          <span class="link-left">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+            </svg>
+            <span class="label">TikTok</span>
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="link-item" href="https://youtube.com/@alldaynyc." target="_blank" rel="noopener">
+          <span class="link-left">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="3"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="label">YouTube</span>
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="link-item" href="https://twitch.tv/alldaynyc" target="_blank" rel="noopener">
+          <span class="link-left">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/>
+            </svg>
+            <span class="label">Twitch</span>
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="link-item" href="https://x.com/alldaynyc" target="_blank" rel="noopener">
+          <span class="link-left">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            <span class="label">X / Twitter</span>
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="link-item" href="https://alldaynyc-shop.fourthwall.com/" target="_blank" rel="noopener">
+          <span class="link-left">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <span class="label">Merch</span>
+          </span>
+          <span class="arrow">↗</span>
+        </a>
+
+        <button class="link-item" onclick="document.getElementById('photosModal').style.display='flex'">
+          <span class="link-left">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/>
+            </svg>
+            <span class="label">Photos</span>
+          </span>
+          <span class="arrow">→</span>
+        </button>
+
+      </div>
+
+      <div class="contact-row">
+        <span class="contact-label">Contact &mdash;</span>
+        <a class="contact-link" href="mailto:Dan@allday.nyc">Dan@allday.nyc</a>
+      </div>
+
+      <p class="footer-stamp">👽 ALIENS.NYC · TRANSMISSION ENDS · ALLDAYNYC © 2026</p>
+
+    </div>
+  </div>
+
+  <!-- Photos Modal -->
+  <div class="modal-overlay" id="photosModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="document.getElementById('photosModal').style.display='none'">✕ CLOSE</button>
+      <p class="gallery-title">// PHOTO ARCHIVE //</p>
+      <div class="gallery-scroll">
+        <div class="gallery-item">
+          <img src="IMG_6830.jpg" alt="Radio City" />
+          <a class="download-btn" href="IMG_6830.jpg" download="ALLDAYNYC_RadioCity.jpg">↓ Download</a>
+        </div>
+        <div class="gallery-item">
+          <img src="IMG_6843.JPG" alt="Knicks ECF" />
+          <a class="download-btn" href="IMG_6843.JPG" download="ALLDAYNYC_KnicksECF.jpg">↓ Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Generate stars
+    const starsEl = document.getElementById('stars');
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 2.5 + 0.5;
+      star.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        top: ${Math.random() * 100}%;
+        left: ${Math.random() * 100}%;
+        animation-duration: ${Math.random() * 4 + 2}s;
+        animation-delay: ${Math.random() * 5}s;
+        opacity: ${Math.random() * 0.7 + 0.3};
+      `;
+      starsEl.appendChild(star);
+    }
+
+    // Show main site after crawl
+    function showSite() {
+      document.getElementById('crawlScreen').style.display = 'none';
+      const main = document.getElementById('mainSite');
+      main.style.display = 'flex';
+      checkTwitchLive();
+    }
+
+    // Auto-show after crawl animation (~10s)
+    setTimeout(showSite, 19000);
+
+    // Twitch live check
+    async function checkTwitchLive() {
+      try {
+        const res = await fetch('/.netlify/functions/twitch-live');
+        const data = await res.json();
+        if (data.live) {
+          document.getElementById('liveBanner').style.display = 'block';
+          document.getElementById('liveGame').textContent = data.title || '';
+        }
+      } catch (e) {
+        console.log('Live check failed:', e);
+      }
+    }
+
+    setInterval(checkTwitchLive, 180000);
+  </script>
+
+</body>
+</html>
